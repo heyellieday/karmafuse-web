@@ -28,6 +28,8 @@ Rails.application.configure do
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
+
+  config.action_controller.asset_host = ENV["assets_cdn_url"]
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
@@ -42,7 +44,11 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  if ENV['force_ssl'] == 'true'
+    config.force_ssl = true
+  else
+    config.force_ssl = false
+  end
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
@@ -56,13 +62,28 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
+  if ENV["MEMCACHEDCLOUD_SERVERS"]
+      config.cache_store = :dalli_store, ENV["MEMCACHEDCLOUD_SERVERS"].split(','), { :username => ENV["MEMCACHEDCLOUD_USERNAME"], :password => ENV["MEMCACHEDCLOUD_PASSWORD"] }
+  else
+    config.cache_store = :dalli_store
+  end
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
 
-  # Ignore bad email addresses and do not raise email delivery errors.
-  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = {:host => ENV['default_mailer_url']}
+  config.action_mailer.perform_deliveries = true  
+  config.action_mailer.raise_delivery_errors = true  
+  config.action_mailer.smtp_settings = {  
+       :authentication => :plain,
+       :address => "smtp.mailgun.org",
+       :port => 587,
+       :domain => ENV["mailgun_domain"],
+       :user_name => ENV["mailgun_username"],
+       :password => ENV["mailgun_password"]
+  }
+
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).

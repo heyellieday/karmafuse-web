@@ -12,5 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+//= require jquery.soulmate
+//= require angular
+//= require ngInfiniteScroll
+//= require medium-editor
+//= require moment
+//= require handlebars/handlebars.runtime.min
+//= require vendor/scripts
+//= require vendor/plugins
+//= require jquery-sortable/source/js/jquery-sortable-min
+//= require blueimp-file-upload/js/vendor/jquery.ui.widget
+//= require blueimp-file-upload/js/jquery.iframe-transport
+//= require blueimp-file-upload/js/jquery.fileupload
+//= require medium-editor-insert-plugin/dist/js/medium-editor-insert-plugin.min
+//= require general

@@ -1,0 +1,43 @@
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .excerpt-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+body.posts{
+	.post-excerpt{
+		z-index: 2;
+		overflow: hidden;
+		.excerpt-content{
+			padding: 15px;
+			a{
+				color: $brand-main;
+				font-size: 24px;
+			}
+		}
+		.excerpt-image-container{
+			z-index: 1;
+			padding-left: 0px;
+			@include aspect-ratio(2, 1);
+			.excerpt-image{
+				width: 100%;
+				height: auto;
+			}
+		}
+		min-height: 175px;
+		border: 1px $brand-alternate solid;
+		margin-bottom: 15px;
+		border-radius: 5px;
+	}
+}

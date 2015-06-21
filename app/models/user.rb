@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
   rolify
 
+  has_many :posts, as: :ownable
+
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
   devise :invitable, :database_authenticatable, :registerable, :confirmable,

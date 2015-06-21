@@ -10,10 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree ./public
- *= require_self
  */
  @import "globals/variables";
  @import "globals/fonts";
  @import "globals/theme";
  @import "globals/header";
+ @import "public/posts"
+/*
+ *= require_self
+ */

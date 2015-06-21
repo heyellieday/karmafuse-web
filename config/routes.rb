@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'posts/index'
+
   root 'posts#index'
 
   devise_for :users,
@@ -14,6 +16,8 @@ Rails.application.routes.draw do
   }
 
    match '/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
+
+   resources :posts, only: [:show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

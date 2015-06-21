@@ -1,0 +1,52 @@
+header#header-main{
+	.navbar-main{
+		
+		border-top: 5px $brand-main solid;
+		border-bottom: 1px $brand-alternate solid;
+		height: 65px;
+		padding-bottom: 0px;
+
+		.navbar-container{
+			margin-top: 5px;
+		}
+		.navbar-brand{
+			padding-top: 5px;
+			#brand-logo-icon{
+				height: 40px;
+			}
+			#brand-logo-text{
+				margin-top: -5px;
+				margin-left: 5px;
+				height:22px;
+			}
+		}
+		.navbar-content{
+			a{
+				color: $brand-main;
+			}
+		}
+	}
+	.navbar-page{
+		border-bottom: 1px $brand-alternate solid;
+		height: 40px;
+		.navbar-container{
+			margin-top: 5px;
+		}
+		.navbar-brand{
+			padding-top: 5px;
+			#brand-logo-icon{
+				height: 40px;
+			}
+			#brand-logo-text{
+				margin-top: -5px;
+				margin-left: 5px;
+				height:22px;
+			}
+		}
+		.navbar-content{
+			a{
+				color: $brand-main;
+			}
+		}
+	}
+}

@@ -49,6 +49,9 @@ gem 'devise'
 gem 'devise_invitable', '~> 1.3.4'
 # Use Devise for OAuth User authentication
 gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
 # Use Devise Token Auth for token-based authentication
 # gem 'devise_token_auth', '~> 0.1.0'
 # Use Authority for authorization

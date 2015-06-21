@@ -4,12 +4,13 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  config.secret_key = 'e8a3ceef13e7aab659f6641a30c47f781b5c1949e639c967e0827b646fd95f0623d84d0eef1695c83d0b12516b4a3974d97c42409bfa6f3e00be2ff568dfc15c'
+  # config.secret_key = '353ec568aa3b355cf0642d0dfc818c9352d78ace29fce0fac890a5d1d291e9313971165d16e4adc3b69a47905ccdb6aa044b39d8a545f3ece81dca0b9e6d5004'
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'admin@freshu.io'
+  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -52,6 +53,8 @@ Devise.setup do |config|
   # given strategies, for example, `config.params_authenticatable = [:database]` will
   # enable it only for database (email + password) authentication.
   # config.params_authenticatable = true
+  config.omniauth :twitter, "KEY", "SECRET"
+  config.omniauth :facebook, "KEY", "SECRET"
 
   # Tell if authentication through HTTP Auth is enabled. False by default.
   # It can be set to an array that will enable http authentication only for the
@@ -96,7 +99,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = '8e163bc142e5ff2cfae41016c9a2b0ce87fbbd611cefa9aa6c7563eddffe5bf2c2da47cd0ffb98d6c6d9f37c74dbd00058ab1f5f040831f87c7fa00ea0aa5dc1'
+  # config.pepper = '1526c26a3adf9726b709bf42efa86980411b3f28e3acd79905351200eb9ba10c518543861a242c286eaaa8e116eba404b00fb70114b209ad071c53c87a8d7310'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without

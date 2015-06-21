@@ -53,8 +53,7 @@ Devise.setup do |config|
   # given strategies, for example, `config.params_authenticatable = [:database]` will
   # enable it only for database (email + password) authentication.
   # config.params_authenticatable = true
-  config.omniauth :twitter, "KEY", "SECRET"
-  config.omniauth :facebook, "KEY", "SECRET"
+  config.omniauth :twitter, ENV["twitter_key"], ENV["twitter_secret"]
 
   # Tell if authentication through HTTP Auth is enabled. False by default.
   # It can be set to an array that will enable http authentication only for the

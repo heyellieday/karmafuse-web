@@ -42,6 +42,15 @@ body.posts{
 			position: absolute;
     	bottom: 0;
 			background-color: rgba(222,4,86,0.4);
+			color:white;
+			font-weight: bold;
+			font-size: 20px;
+			.favorite:hover{
+				color: darken( $brand-alternate, 30% );
+			}
+			.favorited{
+				color: darken( $brand-alternate, 30% );
+			}
 			.upvotes{
 				width:100px;
 				background-color: rgba(222,4,86,0.9);
@@ -55,6 +64,9 @@ body.posts{
 				font-weight: bold;
 				font-size: 20px;
 			}
+			.upvotes:hover{
+				background-color: darken( $brand-alternate, 30% );
+			}
 		}
 		@media (max-width: 610px){
 			.post-info{
@@ -63,6 +75,7 @@ body.posts{
 				position: absolute;
 	    	bottom: 0;
 				background-color: rgba(222,4,86,0.4);
+				font-size: 16px;
 				.upvotes{
 					width:100px;
 					background-color: rgba(222,4,86,0.9);
@@ -72,8 +85,6 @@ body.posts{
 					}
 					padding:5px;
 					padding-bottom: 8px;
-					color:white;
-					font-weight: bold;
 					font-size: 16px;
 				}
 			}

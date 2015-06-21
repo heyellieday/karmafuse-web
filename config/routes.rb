@@ -17,7 +17,12 @@ Rails.application.routes.draw do
 
    match '/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
-   resources :posts, only: [:show]
+
+
+  constraints CommunityConstraint.new do
+    resources :posts, only: [:index], :path => '', id: request.subdomain
+  end
+  resources :posts, only: [:index], :path => '' 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

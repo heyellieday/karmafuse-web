@@ -1,6 +1,6 @@
-class CreateUpvotes < ActiveRecord::Migration
+class CreateFavorites < ActiveRecord::Migration
   def change
-    create_table :upvotes do |t|
+    create_table :favorites do |t|
       t.references :user, index: true, foreign_key: true
       t.references :post, index: true, foreign_key: true
 

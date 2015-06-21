@@ -2,3 +2,7 @@
 # Check out https://github.com/42dev/bower-rails#ruby-dsl-configuration for more options
 
 # asset 'bootstrap'
+asset 'ngInfiniteScroll'
+asset 'moment'
+asset 'medium-editor', "4.1.1"
+asset 'medium-editor-insert-plugin'

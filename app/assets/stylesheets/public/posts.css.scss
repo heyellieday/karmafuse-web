@@ -6,7 +6,7 @@
     width: 100%;
     padding-top: ($height / $width) * 100%;
   }
-  > .excerpt-image {
+  > .excerpt-image, .excerpt-content-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -19,12 +19,13 @@ body.posts{
 	.post-excerpt{
 		z-index: 2;
 		overflow: hidden;
+		@include aspect-ratio(16, 10);
 		.excerpt-content{
-			padding: 15px;
-			a{
-				color: $brand-main;
-				font-size: 24px;
-			}
+			// padding: 15px;
+			// a{
+			// 	color: $brand-main;
+			// 	font-size: 24px;
+			// }
 		}
 		.excerpt-image-container{
 			z-index: 1;
@@ -35,7 +36,49 @@ body.posts{
 				height: auto;
 			}
 		}
-		min-height: 175px;
+		.post-info{
+			height:50px;
+			width:100%;
+			position: absolute;
+    	bottom: 0;
+			background-color: rgba(222,4,86,0.4);
+			.upvotes{
+				width:100px;
+				background-color: rgba(222,4,86,0.9);
+				border-radius: 0px;
+				.upvote-arrow{
+					
+				}
+				padding:10px;
+				padding-bottom: 13px;
+				color:white;
+				font-weight: bold;
+				font-size: 20px;
+			}
+		}
+		@media (max-width: 610px){
+			.post-info{
+				height:35px;
+				width:100%;
+				position: absolute;
+	    	bottom: 0;
+				background-color: rgba(222,4,86,0.4);
+				.upvotes{
+					width:100px;
+					background-color: rgba(222,4,86,0.9);
+					border-radius: 0px;
+					.upvote-arrow{
+						
+					}
+					padding:5px;
+					padding-bottom: 8px;
+					color:white;
+					font-weight: bold;
+					font-size: 16px;
+				}
+			}
+		}
+		max-height: 375px;
 		border: 1px $brand-alternate solid;
 		margin-bottom: 15px;
 		border-radius: 5px;

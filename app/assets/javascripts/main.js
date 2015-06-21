@@ -1,18 +1,17 @@
 var app = angular.module('app', [ 'infinite-scroll']);
 
-app.run(['$rootScope', function($rootScope){
+app.run(['$rootScope', '$sce', function($rootScope, $sce){
   $rootScope.prettifyDate = function(date){
       return moment(date).format("MMM Do YYYY");
   };
   $rootScope.permalink = function(post){
     return "/posts/" + post.slug;
   };
-  $rootScope.renderTriple = function(index){
-        if (index == 1 || index % 9 == 0 && index != 0){
-            console.log(index);
-            setTimeout(function(){$("#post-"+index).attr('src','//ib.3lift.com/ttj?inv_code=freshu_main_feed')},10);
-        }
-    }
+  $rootScope.renderSrc = function(url){
+    console.log(url);
+    return $sce.trustAsResourceUrl(url);
+  }
+
 }]);
 app.filter('cut', [function () {
         return function (value, wordwise, max, tail) {

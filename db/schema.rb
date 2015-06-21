@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621083308) do
+ActiveRecord::Schema.define(version: 20150621113520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20150621083308) do
     t.string   "ownable_type"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.text     "external_link"
   end
 
   add_index "posts", ["belongable_type", "belongable_id"], name: "index_posts_on_belongable_type_and_belongable_id", using: :btree
